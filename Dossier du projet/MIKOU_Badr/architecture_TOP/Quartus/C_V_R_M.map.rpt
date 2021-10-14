@@ -1,0 +1,816 @@
+Analysis & Synthesis report for C_V_R_M
+Tue Sep 08 23:28:45 2020
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. State Machine - |C_V_R_M|P_CT:pcr1|present
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: P_O:po1|FRONT_DCT:fd1|REG_FLIP_FLOP_GEN:rff1
+ 13. Parameter Settings for User Entity Instance: P_O:po1|FRONT_DCT:fd1|REG_FLIP_FLOP_GEN:rff2
+ 14. Parameter Settings for User Entity Instance: P_O:po1|COMP_30:c30|MUX_2_1_GEN:mux1
+ 15. Parameter Settings for User Entity Instance: P_O:po1|COMP_30:c30|ADD_1_GEN:add1
+ 16. Parameter Settings for User Entity Instance: P_O:po1|COMP_30:c30|MUX_2_1_GEN:mux2
+ 17. Parameter Settings for User Entity Instance: P_O:po1|COMP_30:c30|REG_FLIP_FLOP_GEN:rff1
+ 18. Parameter Settings for User Entity Instance: P_O:po1|COMP_V_S_F:CVSF|ADD_1_GEN:add1
+ 19. Parameter Settings for User Entity Instance: P_O:po1|COMP_V_S_F:CVSF|MUX_2_1_GEN:mux1
+ 20. Parameter Settings for User Entity Instance: P_O:po1|COMP_V_S_F:CVSF|REG_FLIP_FLOP_GEN:rff1
+ 21. Parameter Settings for User Entity Instance: P_O:po1|COMP_V_S_F:CVSF|MUX_2_1_GEN:mux2
+ 22. Parameter Settings for User Entity Instance: P_O:po1|COMP_V_S_F:CVSF|REG_FLIP_FLOP_GEN:rff2
+ 23. Parameter Settings for User Entity Instance: P_O:po1|COMP_V_S_F:CVSF|MUX_2_1_GEN:mux3
+ 24. Parameter Settings for User Entity Instance: P_O:po1|COMP_V_S_F:CVSF|REG_FLIP_FLOP_GEN:rff3
+ 25. Parameter Settings for User Entity Instance: P_O:po1|M_T:mt1|ADD_1_GEN:add1
+ 26. Parameter Settings for User Entity Instance: P_O:po1|M_T:mt1|MUX_2_1_GEN:mux2_1
+ 27. Parameter Settings for User Entity Instance: P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1
+ 28. Port Connectivity Checks: "P_O:po1|SEVEN_SEG:seg1"
+ 29. Port Connectivity Checks: "P_O:po1|M_T:mt1|CMP:cmp1"
+ 30. Port Connectivity Checks: "P_O:po1|M_T:mt1|MUX_2_1_GEN:mux2_1"
+ 31. Port Connectivity Checks: "P_O:po1|M_T:mt1"
+ 32. Port Connectivity Checks: "P_O:po1|COMP_V_S_F:CVSF|MUX_2_1_GEN:mux1"
+ 33. Port Connectivity Checks: "P_O:po1|COMP_30:c30|CMP:cmp1"
+ 34. Port Connectivity Checks: "P_O:po1|COMP_30:c30|MUX_2_1_GEN:mux1"
+ 35. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++------------------------------------+------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Sep 08 23:28:45 2020    ;
+; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Full Version ;
+; Revision Name                      ; C_V_R_M                                  ;
+; Top-level Entity Name              ; C_V_R_M                                  ;
+; Family                             ; Cyclone II                               ;
+; Total logic elements               ; 161                                      ;
+;     Total combinational functions  ; 117                                      ;
+;     Dedicated logic registers      ; 78                                       ;
+; Total registers                    ; 78                                       ;
+; Total pins                         ; 68                                       ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 0                                        ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 0                                        ;
++------------------------------------+------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                            ;
++----------------------------------------------------------------+--------------------+--------------------+
+; Option                                                         ; Setting            ; Default Value      ;
++----------------------------------------------------------------+--------------------+--------------------+
+; Device                                                         ; EP2C70F896C6       ;                    ;
+; Top-level entity name                                          ; C_V_R_M            ; C_V_R_M            ;
+; Family name                                                    ; Cyclone II         ; Stratix II         ;
+; Use Generated Physical Constraints File                        ; Off                ;                    ;
+; Use smart compilation                                          ; Off                ; Off                ;
+; Restructure Multiplexers                                       ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                            ; Off                ; Off                ;
+; Preserve fewer node names                                      ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                      ; Off                ; Off                ;
+; Verilog Version                                                ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                   ; VHDL93             ; VHDL93             ;
+; State Machine Processing                                       ; Auto               ; Auto               ;
+; Safe State Machine                                             ; Off                ; Off                ;
+; Extract Verilog State Machines                                 ; On                 ; On                 ;
+; Extract VHDL State Machines                                    ; On                 ; On                 ;
+; Ignore Verilog initial constructs                              ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                     ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                 ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                        ; On                 ; On                 ;
+; Parallel Synthesis                                             ; Off                ; Off                ;
+; DSP Block Balancing                                            ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                             ; On                 ; On                 ;
+; Power-Up Don't Care                                            ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                   ; Off                ; Off                ;
+; Remove Duplicate Registers                                     ; On                 ; On                 ;
+; Ignore CARRY Buffers                                           ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                         ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                          ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                      ; Off                ; Off                ;
+; Ignore LCELL Buffers                                           ; Off                ; Off                ;
+; Ignore SOFT Buffers                                            ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                 ; Off                ; Off                ;
+; Optimization Technique                                         ; Balanced           ; Balanced           ;
+; Carry Chain Length                                             ; 70                 ; 70                 ;
+; Auto Carry Chains                                              ; On                 ; On                 ;
+; Auto Open-Drain Pins                                           ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                          ; Off                ; Off                ;
+; Auto ROM Replacement                                           ; On                 ; On                 ;
+; Auto RAM Replacement                                           ; On                 ; On                 ;
+; Auto Shift Register Replacement                                ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                  ; On                 ; On                 ;
+; Strict RAM Replacement                                         ; Off                ; Off                ;
+; Allow Synchronous Control Signals                              ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                         ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                              ; Off                ; Off                ;
+; Auto Resource Sharing                                          ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                             ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                             ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                  ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing            ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives              ; Off                ; Off                ;
+; Timing-Driven Synthesis                                        ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report             ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                             ; Off                ; Off                ;
+; Synchronization Register Chain Length                          ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                              ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report       ; 100                ; 100                ;
+; Number of Inverted Registers Reported in Synthesis Report      ; 100                ; 100                ;
+; Clock MUX Protection                                           ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                    ; Off                ; Off                ;
+; Block Design Naming                                            ; Auto               ; Auto               ;
+; SDC constraint protection                                      ; Off                ; Off                ;
+; Synthesis Effort                                               ; Auto               ; Auto               ;
+; Allows Asynchronous Clear Usage For Shift Register Replacement ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                             ; Medium             ; Medium             ;
++----------------------------------------------------------------+--------------------+--------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                    ;
++---------------------------------------------------------------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------+
+; File Name with User-Entered Path                                                      ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                  ;
++---------------------------------------------------------------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------+
+; ../SRC/C_V_R_M.VHD                                                                    ; yes             ; User VHDL File  ; D:/MIKOU_Badr/architecture_TOP/SRC/C_V_R_M.VHD                                                ;
+; ../../partie_CT/SRC/P_CT.VHD                                                          ; yes             ; User VHDL File  ; D:/MIKOU_Badr/partie_CT/SRC/P_CT.VHD                                                          ;
+; ../../partie_OP/partie_OP_TOP/SRC/P_O.VHD                                             ; yes             ; User VHDL File  ; D:/MIKOU_Badr/partie_OP/partie_OP_TOP/SRC/P_O.VHD                                             ;
+; ../../partie_OP/multiplexeur_temporel/SRC/M_T.VHD                                     ; yes             ; User VHDL File  ; D:/MIKOU_Badr/partie_OP/multiplexeur_temporel/SRC/M_T.VHD                                     ;
+; ../../partie_OP/diviseur_de_frequence/SRC/DIV_FRE.VHD                                 ; yes             ; User VHDL File  ; D:/MIKOU_Badr/partie_OP/diviseur_de_frequence/SRC/DIV_FRE.VHD                                 ;
+; ../../partie_OP/detecteur_de_front/SRC/FRONT_DCT.VHD                                  ; yes             ; User VHDL File  ; D:/MIKOU_Badr/partie_OP/detecteur_de_front/SRC/FRONT_DCT.VHD                                  ;
+; ../../partie_OP/Decodeur_7_segments/SRC/SEVEN_SEG.VHD                                 ; yes             ; User VHDL File  ; D:/MIKOU_Badr/partie_OP/Decodeur_7_segments/SRC/SEVEN_SEG.VHD                                 ;
+; ../../partie_OP/compteur_modulo_30/SRC/COMP_30.VHD                                    ; yes             ; User VHDL File  ; D:/MIKOU_Badr/partie_OP/compteur_modulo_30/SRC/COMP_30.VHD                                    ;
+; ../../partie_OP/compteur_de_vitesse_sauvgarde_et_fixation/SRC/COMP_V_S_F.VHD          ; yes             ; User VHDL File  ; D:/MIKOU_Badr/partie_OP/compteur_de_vitesse_sauvgarde_et_fixation/SRC/COMP_V_S_F.VHD          ;
+; ../../partie_OP/Afficheur_7_segment/SRC/A_7_S.VHD                                     ; yes             ; User VHDL File  ; D:/MIKOU_Badr/partie_OP/Afficheur_7_segment/SRC/A_7_S.VHD                                     ;
+; ../../partie_OP/circuits_de_base/registre_flip_flop_generic/SRC/REG_FLIP_FLOP_GEN.VHD ; yes             ; User VHDL File  ; D:/MIKOU_Badr/partie_OP/circuits_de_base/registre_flip_flop_generic/SRC/REG_FLIP_FLOP_GEN.VHD ;
+; ../../partie_OP/circuits_de_base/multiplexeur_6_vers_1/SRC/MUX_6_1.VHD                ; yes             ; User VHDL File  ; D:/MIKOU_Badr/partie_OP/circuits_de_base/multiplexeur_6_vers_1/SRC/MUX_6_1.VHD                ;
+; ../../partie_OP/circuits_de_base/mulitiplexeur_2_vers_1_generic/SRC/MUX_2_1_GEN.VHD   ; yes             ; User VHDL File  ; D:/MIKOU_Badr/partie_OP/circuits_de_base/mulitiplexeur_2_vers_1_generic/SRC/MUX_2_1_GEN.VHD   ;
+; ../../partie_OP/circuits_de_base/comparateur/SRC/CMP.VHD                              ; yes             ; User VHDL File  ; D:/MIKOU_Badr/partie_OP/circuits_de_base/comparateur/SRC/CMP.VHD                              ;
+; ../../partie_OP/circuits_de_base/bascule_d/SRC/D_BAS.VHD                              ; yes             ; User VHDL File  ; D:/MIKOU_Badr/partie_OP/circuits_de_base/bascule_d/SRC/D_BAS.VHD                              ;
+; ../../partie_OP/circuits_de_base/additionneur_1_generic/SRC/ADD_1_GEN.VHD             ; yes             ; User VHDL File  ; D:/MIKOU_Badr/partie_OP/circuits_de_base/additionneur_1_generic/SRC/ADD_1_GEN.VHD             ;
+; ../../partie_OP/circuits_de_base/a_andNot_b/SRC/AND_NOT.VHD                           ; yes             ; User VHDL File  ; D:/MIKOU_Badr/partie_OP/circuits_de_base/a_andNot_b/SRC/AND_NOT.VHD                           ;
++---------------------------------------------------------------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 161   ;
+;                                             ;       ;
+; Total combinational functions               ; 117   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 28    ;
+;     -- 3 input functions                    ; 58    ;
+;     -- <=2 input functions                  ; 31    ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 93    ;
+;     -- arithmetic mode                      ; 24    ;
+;                                             ;       ;
+; Total registers                             ; 78    ;
+;     -- Dedicated logic registers            ; 78    ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 68    ;
+; Maximum fan-out node                        ; rst   ;
+; Maximum fan-out                             ; 78    ;
+; Total fan-out                               ; 705   ;
+; Average fan-out                             ; 2.68  ;
++---------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                    ;
++-----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+--------------+
+; Compilation Hierarchy Node        ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                     ; Library Name ;
++-----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+--------------+
+; |C_V_R_M                          ; 117 (0)           ; 78 (0)       ; 0           ; 0            ; 0       ; 0         ; 68   ; 0            ; |C_V_R_M                                                ; work         ;
+;    |P_CT:pcr1|                    ; 3 (3)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_CT:pcr1                                      ; work         ;
+;    |P_O:po1|                      ; 114 (0)           ; 75 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1                                        ; work         ;
+;       |A_7_S:A7S1|                ; 48 (48)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|A_7_S:A7S1                             ; work         ;
+;       |COMP_30:c30|               ; 9 (0)             ; 5 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|COMP_30:c30                            ; work         ;
+;          |CMP:cmp1|               ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|COMP_30:c30|CMP:cmp1                   ; work         ;
+;          |MUX_2_1_GEN:mux1|       ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|COMP_30:c30|MUX_2_1_GEN:mux1           ; work         ;
+;          |REG_FLIP_FLOP_GEN:rff1| ; 5 (5)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|COMP_30:c30|REG_FLIP_FLOP_GEN:rff1     ; work         ;
+;       |COMP_V_S_F:CVSF|           ; 21 (0)            ; 63 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|COMP_V_S_F:CVSF                        ; work         ;
+;          |REG_FLIP_FLOP_GEN:rff1| ; 21 (21)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|COMP_V_S_F:CVSF|REG_FLIP_FLOP_GEN:rff1 ; work         ;
+;          |REG_FLIP_FLOP_GEN:rff2| ; 0 (0)             ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|COMP_V_S_F:CVSF|REG_FLIP_FLOP_GEN:rff2 ; work         ;
+;          |REG_FLIP_FLOP_GEN:rff3| ; 0 (0)             ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|COMP_V_S_F:CVSF|REG_FLIP_FLOP_GEN:rff3 ; work         ;
+;       |DIV_FRE:df1|               ; 2 (0)             ; 2 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|DIV_FRE:df1                            ; work         ;
+;          |D_BAS:div|              ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|DIV_FRE:df1|D_BAS:div                  ; work         ;
+;       |FRONT_DCT:fd1|             ; 1 (0)             ; 2 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|FRONT_DCT:fd1                          ; work         ;
+;          |AND_NOT:addnot1|        ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|FRONT_DCT:fd1|AND_NOT:addnot1          ; work         ;
+;          |REG_FLIP_FLOP_GEN:rff1| ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|FRONT_DCT:fd1|REG_FLIP_FLOP_GEN:rff1   ; work         ;
+;          |REG_FLIP_FLOP_GEN:rff2| ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|FRONT_DCT:fd1|REG_FLIP_FLOP_GEN:rff2   ; work         ;
+;       |M_T:mt1|                   ; 19 (0)            ; 3 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|M_T:mt1                                ; work         ;
+;          |MUX_2_1_GEN:mux2_1|     ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|M_T:mt1|MUX_2_1_GEN:mux2_1             ; work         ;
+;          |MUX_6_1:mux6_1|         ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|M_T:mt1|MUX_6_1:mux6_1                 ; work         ;
+;          |REG_FLIP_FLOP_GEN:rff1| ; 1 (1)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1         ; work         ;
+;       |SEVEN_SEG:seg1|            ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |C_V_R_M|P_O:po1|SEVEN_SEG:seg1                         ; work         ;
++-----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------+
+; State Machine - |C_V_R_M|P_CT:pcr1|present                                    ;
++---------------------+---------------------+-----------------+-----------------+
+; Name                ; present.Acknowledge ; present.Request ; present.Attente ;
++---------------------+---------------------+-----------------+-----------------+
+; present.Attente     ; 0                   ; 0               ; 0               ;
+; present.Request     ; 0                   ; 1               ; 1               ;
+; present.Acknowledge ; 1                   ; 0               ; 1               ;
++---------------------+---------------------+-----------------+-----------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                      ;
++-----------------------------------------------------+---------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal       ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------------+------------------------+
+; P_O:po1|A_7_S:A7S1|dout_1[7]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_1[6]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_1[5]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_1[4]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_1[3]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_1[2]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_1[1]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_2[7]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_2[6]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_2[5]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_2[4]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_2[3]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_2[2]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_2[1]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_3[7]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_3[6]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_3[5]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_3[4]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_3[3]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_3[2]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_3[1]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_4[7]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_4[6]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_4[5]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_4[4]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_4[3]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_4[2]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_4[1]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_5[7]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_5[6]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_5[5]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_5[4]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_5[3]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_5[2]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_5[1]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_0[7]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_0[6]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_0[5]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_0[4]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_0[3]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_0[2]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; P_O:po1|A_7_S:A7S1|dout_0[1]                        ; P_O:po1|A_7_S:A7S1|Equal0 ; yes                    ;
+; Number of user-specified and inferred latches = 42  ;                           ;                        ;
++-----------------------------------------------------+---------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 78    ;
+; Number of registers using Synchronous Clear  ; 21    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 78    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 42    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; P_O:po1|DIV_FRE:df1|D_BAS:div|q_n      ; 2       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; No         ; |C_V_R_M|P_O:po1|M_T:mt1|MUX_6_1:mux6_1|y[2] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: P_O:po1|FRONT_DCT:fd1|REG_FLIP_FLOP_GEN:rff1 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; n              ; 1     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: P_O:po1|FRONT_DCT:fd1|REG_FLIP_FLOP_GEN:rff2 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; n              ; 1     ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: P_O:po1|COMP_30:c30|MUX_2_1_GEN:mux1 ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; n              ; 5     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: P_O:po1|COMP_30:c30|ADD_1_GEN:add1 ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; n              ; 5     ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: P_O:po1|COMP_30:c30|MUX_2_1_GEN:mux2 ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; n              ; 5     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: P_O:po1|COMP_30:c30|REG_FLIP_FLOP_GEN:rff1 ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; n              ; 5     ; Signed Integer                                                 ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: P_O:po1|COMP_V_S_F:CVSF|ADD_1_GEN:add1 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; n              ; 21    ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: P_O:po1|COMP_V_S_F:CVSF|MUX_2_1_GEN:mux1 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; n              ; 21    ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: P_O:po1|COMP_V_S_F:CVSF|REG_FLIP_FLOP_GEN:rff1 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; n              ; 21    ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: P_O:po1|COMP_V_S_F:CVSF|MUX_2_1_GEN:mux2 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; n              ; 21    ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: P_O:po1|COMP_V_S_F:CVSF|REG_FLIP_FLOP_GEN:rff2 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; n              ; 21    ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: P_O:po1|COMP_V_S_F:CVSF|MUX_2_1_GEN:mux3 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; n              ; 21    ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: P_O:po1|COMP_V_S_F:CVSF|REG_FLIP_FLOP_GEN:rff3 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; n              ; 21    ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: P_O:po1|M_T:mt1|ADD_1_GEN:add1 ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; n              ; 3     ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: P_O:po1|M_T:mt1|MUX_2_1_GEN:mux2_1 ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; n              ; 3     ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; n              ; 3     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "P_O:po1|SEVEN_SEG:seg1" ;
++------+-------+----------+--------------------------+
+; Port ; Type  ; Severity ; Details                  ;
++------+-------+----------+--------------------------+
+; pol  ; Input ; Info     ; Stuck at VCC             ;
++------+-------+----------+--------------------------+
+
+
++------------------------------------------------------+
+; Port Connectivity Checks: "P_O:po1|M_T:mt1|CMP:cmp1" ;
++-----------+-------+----------+-----------------------+
+; Port      ; Type  ; Severity ; Details               ;
++-----------+-------+----------+-----------------------+
+; in0[4..3] ; Input ; Info     ; Stuck at GND          ;
+; in1[4..3] ; Input ; Info     ; Stuck at GND          ;
+; in1[2]    ; Input ; Info     ; Stuck at VCC          ;
+; in1[1]    ; Input ; Info     ; Stuck at GND          ;
+; in1[0]    ; Input ; Info     ; Stuck at VCC          ;
++-----------+-------+----------+-----------------------+
+
+
++----------------------------------------------------------------+
+; Port Connectivity Checks: "P_O:po1|M_T:mt1|MUX_2_1_GEN:mux2_1" ;
++------+-------+----------+--------------------------------------+
+; Port ; Type  ; Severity ; Details                              ;
++------+-------+----------+--------------------------------------+
+; in1  ; Input ; Info     ; Stuck at GND                         ;
++------+-------+----------+--------------------------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "P_O:po1|M_T:mt1" ;
++-----------+-------+----------+--------------+
+; Port      ; Type  ; Severity ; Details      ;
++-----------+-------+----------+--------------+
+; in5[3..1] ; Input ; Info     ; Stuck at GND ;
++-----------+-------+----------+--------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "P_O:po1|COMP_V_S_F:CVSF|MUX_2_1_GEN:mux1" ;
++------+-------+----------+--------------------------------------------+
+; Port ; Type  ; Severity ; Details                                    ;
++------+-------+----------+--------------------------------------------+
+; in1  ; Input ; Info     ; Stuck at GND                               ;
++------+-------+----------+--------------------------------------------+
+
+
++----------------------------------------------------------+
+; Port Connectivity Checks: "P_O:po1|COMP_30:c30|CMP:cmp1" ;
++-----------+-------+----------+---------------------------+
+; Port      ; Type  ; Severity ; Details                   ;
++-----------+-------+----------+---------------------------+
+; in1[4..2] ; Input ; Info     ; Stuck at VCC              ;
+; in1[1]    ; Input ; Info     ; Stuck at GND              ;
+; in1[0]    ; Input ; Info     ; Stuck at VCC              ;
++-----------+-------+----------+---------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "P_O:po1|COMP_30:c30|MUX_2_1_GEN:mux1" ;
++------+-------+----------+----------------------------------------+
+; Port ; Type  ; Severity ; Details                                ;
++------+-------+----------+----------------------------------------+
+; in1  ; Input ; Info     ; Stuck at GND                           ;
++------+-------+----------+----------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Processing started: Tue Sep 08 23:28:42 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off C_V_R_M -c C_V_R_M
+Info: Found 2 design units, including 1 entities, in source file ../SRC/C_V_R_M.VHD
+    Info: Found design unit 1: C_V_R_M-RTL
+    Info: Found entity 1: C_V_R_M
+Info: Found 2 design units, including 1 entities, in source file ../../partie_CT/SRC/P_CT.VHD
+    Info: Found design unit 1: P_CT-RTL
+    Info: Found entity 1: P_CT
+Info: Found 2 design units, including 1 entities, in source file ../../partie_OP/partie_OP_TOP/SRC/P_O.VHD
+    Info: Found design unit 1: P_O-RTL
+    Info: Found entity 1: P_O
+Info: Found 2 design units, including 1 entities, in source file ../../partie_OP/multiplexeur_temporel/SRC/M_T.VHD
+    Info: Found design unit 1: M_T-RTL
+    Info: Found entity 1: M_T
+Info: Found 2 design units, including 1 entities, in source file ../../partie_OP/diviseur_de_frequence/SRC/DIV_FRE.VHD
+    Info: Found design unit 1: DIV_FRE-RTL
+    Info: Found entity 1: DIV_FRE
+Info: Found 2 design units, including 1 entities, in source file ../../partie_OP/detecteur_de_front/SRC/FRONT_DCT.VHD
+    Info: Found design unit 1: FRONT_DCT-RTL
+    Info: Found entity 1: FRONT_DCT
+Info: Found 2 design units, including 1 entities, in source file ../../partie_OP/Decodeur_7_segments/SRC/SEVEN_SEG.VHD
+    Info: Found design unit 1: SEVEN_SEG-RTL
+    Info: Found entity 1: SEVEN_SEG
+Info: Found 2 design units, including 1 entities, in source file ../../partie_OP/compteur_modulo_30/SRC/COMP_30.VHD
+    Info: Found design unit 1: COMP_30-RTL
+    Info: Found entity 1: COMP_30
+Info: Found 2 design units, including 1 entities, in source file ../../partie_OP/compteur_de_vitesse_sauvgarde_et_fixation/SRC/COMP_V_S_F.VHD
+    Info: Found design unit 1: COMP_V_S_F-RTL
+    Info: Found entity 1: COMP_V_S_F
+Info: Found 2 design units, including 1 entities, in source file ../../partie_OP/Afficheur_7_segment/SRC/A_7_S.VHD
+    Info: Found design unit 1: A_7_S-RTL
+    Info: Found entity 1: A_7_S
+Info: Found 2 design units, including 1 entities, in source file ../../partie_OP/circuits_de_base/registre_flip_flop_generic/SRC/REG_FLIP_FLOP_GEN.VHD
+    Info: Found design unit 1: REG_FLIP_FLOP_GEN-RTL
+    Info: Found entity 1: REG_FLIP_FLOP_GEN
+Info: Found 2 design units, including 1 entities, in source file ../../partie_OP/circuits_de_base/multiplexeur_6_vers_1/SRC/MUX_6_1.VHD
+    Info: Found design unit 1: MUX_6_1-RTL
+    Info: Found entity 1: MUX_6_1
+Info: Found 2 design units, including 1 entities, in source file ../../partie_OP/circuits_de_base/mulitiplexeur_2_vers_1_generic/SRC/MUX_2_1_GEN.VHD
+    Info: Found design unit 1: MUX_2_1_GEN-RTL
+    Info: Found entity 1: MUX_2_1_GEN
+Info: Found 2 design units, including 1 entities, in source file ../../partie_OP/circuits_de_base/comparateur/SRC/CMP.VHD
+    Info: Found design unit 1: CMP-RTL
+    Info: Found entity 1: CMP
+Info: Found 2 design units, including 1 entities, in source file ../../partie_OP/circuits_de_base/bascule_d/SRC/D_BAS.VHD
+    Info: Found design unit 1: D_BAS-RTL
+    Info: Found entity 1: D_BAS
+Info: Found 2 design units, including 1 entities, in source file ../../partie_OP/circuits_de_base/additionneur_1_generic/SRC/ADD_1_GEN.VHD
+    Info: Found design unit 1: ADD_1_GEN-RTL
+    Info: Found entity 1: ADD_1_GEN
+Info: Found 2 design units, including 1 entities, in source file ../../partie_OP/circuits_de_base/a_andNot_b/SRC/AND_NOT.VHD
+    Info: Found design unit 1: AND_NOT-RTL
+    Info: Found entity 1: AND_NOT
+Info: Elaborating entity "C_V_R_M" for the top level hierarchy
+Info: Elaborating entity "P_CT" for hierarchy "P_CT:pcr1"
+Info: Elaborating entity "P_O" for hierarchy "P_O:po1"
+Info: Elaborating entity "DIV_FRE" for hierarchy "P_O:po1|DIV_FRE:df1"
+Info: Elaborating entity "D_BAS" for hierarchy "P_O:po1|DIV_FRE:df1|D_BAS:div"
+Warning (10492): VHDL Process Statement warning at D_BAS.VHD(46): signal "rst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info: Elaborating entity "FRONT_DCT" for hierarchy "P_O:po1|FRONT_DCT:fd1"
+Info: Elaborating entity "REG_FLIP_FLOP_GEN" for hierarchy "P_O:po1|FRONT_DCT:fd1|REG_FLIP_FLOP_GEN:rff1"
+Info: Elaborating entity "AND_NOT" for hierarchy "P_O:po1|FRONT_DCT:fd1|AND_NOT:addnot1"
+Info: Elaborating entity "COMP_30" for hierarchy "P_O:po1|COMP_30:c30"
+Info: Elaborating entity "MUX_2_1_GEN" for hierarchy "P_O:po1|COMP_30:c30|MUX_2_1_GEN:mux1"
+Info: Elaborating entity "ADD_1_GEN" for hierarchy "P_O:po1|COMP_30:c30|ADD_1_GEN:add1"
+Info: Elaborating entity "REG_FLIP_FLOP_GEN" for hierarchy "P_O:po1|COMP_30:c30|REG_FLIP_FLOP_GEN:rff1"
+Info: Elaborating entity "CMP" for hierarchy "P_O:po1|COMP_30:c30|CMP:cmp1"
+Info: Elaborating entity "COMP_V_S_F" for hierarchy "P_O:po1|COMP_V_S_F:CVSF"
+Info: Elaborating entity "ADD_1_GEN" for hierarchy "P_O:po1|COMP_V_S_F:CVSF|ADD_1_GEN:add1"
+Info: Elaborating entity "MUX_2_1_GEN" for hierarchy "P_O:po1|COMP_V_S_F:CVSF|MUX_2_1_GEN:mux1"
+Info: Elaborating entity "REG_FLIP_FLOP_GEN" for hierarchy "P_O:po1|COMP_V_S_F:CVSF|REG_FLIP_FLOP_GEN:rff1"
+Info: Elaborating entity "M_T" for hierarchy "P_O:po1|M_T:mt1"
+Info: Elaborating entity "ADD_1_GEN" for hierarchy "P_O:po1|M_T:mt1|ADD_1_GEN:add1"
+Info: Elaborating entity "MUX_2_1_GEN" for hierarchy "P_O:po1|M_T:mt1|MUX_2_1_GEN:mux2_1"
+Info: Elaborating entity "REG_FLIP_FLOP_GEN" for hierarchy "P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1"
+Info: Elaborating entity "MUX_6_1" for hierarchy "P_O:po1|M_T:mt1|MUX_6_1:mux6_1"
+Info: Elaborating entity "SEVEN_SEG" for hierarchy "P_O:po1|SEVEN_SEG:seg1"
+Info: Elaborating entity "A_7_S" for hierarchy "P_O:po1|A_7_S:A7S1"
+Warning (10492): VHDL Process Statement warning at A_7_S.VHD(52): signal "data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at A_7_S.VHD(54): signal "data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at A_7_S.VHD(56): signal "data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at A_7_S.VHD(58): signal "data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at A_7_S.VHD(60): signal "data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at A_7_S.VHD(62): signal "data_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at A_7_S.VHD(49): inferring latch(es) for signal or variable "dout_0", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at A_7_S.VHD(49): inferring latch(es) for signal or variable "dout_1", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at A_7_S.VHD(49): inferring latch(es) for signal or variable "dout_2", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at A_7_S.VHD(49): inferring latch(es) for signal or variable "dout_3", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at A_7_S.VHD(49): inferring latch(es) for signal or variable "dout_4", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at A_7_S.VHD(49): inferring latch(es) for signal or variable "dout_5", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "dout_5[7]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_5[6]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_5[5]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_5[4]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_5[3]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_5[2]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_5[1]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_4[7]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_4[6]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_4[5]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_4[4]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_4[3]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_4[2]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_4[1]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_3[7]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_3[6]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_3[5]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_3[4]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_3[3]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_3[2]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_3[1]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_2[7]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_2[6]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_2[5]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_2[4]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_2[3]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_2[2]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_2[1]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_1[7]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_1[6]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_1[5]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_1[4]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_1[3]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_1[2]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_1[1]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_0[7]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_0[6]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_0[5]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_0[4]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_0[3]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_0[2]" at A_7_S.VHD(49)
+Info (10041): Inferred latch for "dout_0[1]" at A_7_S.VHD(49)
+Warning: Tri-state node(s) do not directly drive top-level pin(s)
+    Warning: Converted tri-state buffer "P_O:po1|SEVEN_SEG:seg1|seg_out[7]" feeding internal logic into a wire
+    Warning: Converted tri-state buffer "P_O:po1|SEVEN_SEG:seg1|seg_out[6]" feeding internal logic into a wire
+    Warning: Converted tri-state buffer "P_O:po1|SEVEN_SEG:seg1|seg_out[5]" feeding internal logic into a wire
+    Warning: Converted tri-state buffer "P_O:po1|SEVEN_SEG:seg1|seg_out[4]" feeding internal logic into a wire
+    Warning: Converted tri-state buffer "P_O:po1|SEVEN_SEG:seg1|seg_out[3]" feeding internal logic into a wire
+    Warning: Converted tri-state buffer "P_O:po1|SEVEN_SEG:seg1|seg_out[2]" feeding internal logic into a wire
+    Warning: Converted tri-state buffer "P_O:po1|SEVEN_SEG:seg1|seg_out[1]" feeding internal logic into a wire
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_1[7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_1[6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_1[5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_1[4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_1[3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_1[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_1[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_2[7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_2[6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_2[5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_2[4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_2[3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_2[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_2[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_3[7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_3[6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_3[5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_3[4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_3[3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_3[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_3[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_4[7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_4[6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_4[5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_4[4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_4[3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_4[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_4[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_5[7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_5[6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_5[5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_5[4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_5[3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_5[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_5[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_0[7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_0[6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_0[5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_0[4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_0[3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_0[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Warning: Latch P_O:po1|A_7_S:A7S1|dout_0[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal P_O:po1|M_T:mt1|REG_FLIP_FLOP_GEN:rff1|s[2]
+Info: Registers with preset signals will power-up high
+Info: DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info: Implemented 229 device resources after synthesis - the final resource count might be different
+    Info: Implemented 4 input pins
+    Info: Implemented 64 output pins
+    Info: Implemented 161 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 105 warnings
+    Info: Peak virtual memory: 256 megabytes
+    Info: Processing ended: Tue Sep 08 23:28:45 2020
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
+
+

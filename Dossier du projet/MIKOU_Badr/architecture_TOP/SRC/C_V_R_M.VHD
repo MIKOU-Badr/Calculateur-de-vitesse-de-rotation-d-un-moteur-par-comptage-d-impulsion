@@ -1,0 +1,116 @@
+--**************************************************************************************--
+--					ENSA FES					--
+--		             	     Filiere :GSEII					--
+--**************************************************************************************--
+	-- Title	: calculateur de vitesse de rotation d'un moteur
+	-- Project    	: "calculateur de vitesse de rotation d'un moteur"
+    	-- Block 	: calculateur de vitesse de rotation d'un moteur
+--**************************************************************************************--
+	-- File  	: C_V_R_M.VHD
+	-- Authors 	: MIKOU Badr
+	-- Created 	: 06/09/2020
+--**************************************************************************************--
+	-- Description	:
+       -- il calcule la vitesse de rotation du moteur en calculant le nombre de cycle
+       -- d'horloge dans un tour.
+       -- il est composé d'une partie opérative est une partie de control
+       -- la partie operative c'est la partie qui fait les calcules
+       -- la partie de controle facilite la lecture de vitesse 
+	 
+--**************************************************************************************--
+
+
+--**************************************************************************************--
+--*				     Used Libraries				       *--
+--**************************************************************************************--
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL; 
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
+--**************************************************************************************--
+--*				   ENTITY Declaration				       *--
+--**************************************************************************************--
+
+ENTITY C_V_R_M IS PORT(
+
+        -- entrées
+    clk   : in std_logic;
+    rst   : in std_logic;
+    rq    : in std_logic;
+    i_in  : IN STD_LOGIC;
+
+        -- les sorties
+    v     : OUT STD_LOGIC_VECTOR(20 DOWNTO 0);
+    ack   : out std_logic; -- acknoledge
+
+        -- affichage 7 segment 
+    seg_1 : OUT STD_LOGIC_VECTOR(1 TO 7);
+    seg_2 : OUT STD_LOGIC_VECTOR(1 TO 7);
+    seg_3 : OUT STD_LOGIC_VECTOR(1 TO 7);
+    seg_4 : OUT STD_LOGIC_VECTOR(1 TO 7);
+    seg_5 : OUT STD_LOGIC_VECTOR(1 TO 7);
+    seg_6 : OUT STD_LOGIC_VECTOR(1 TO 7)
+);
+END C_V_R_M;
+
+--**************************************************************************************--
+--*				    RTL Description				       *--
+--**************************************************************************************--
+
+ARCHITECTURE RTL OF C_V_R_M IS
+
+    -- implementation des composantes
+COMPONENT P_CT IS PORT(
+    clk   : in std_logic;
+    rst   : in std_logic;
+    rq    : in std_logic;
+    ack   : out std_logic; -- acknoledge
+    s_out : out std_logic -- bloquer la sortie
+);
+END COMPONENT;
+
+COMPONENT P_O IS PORT(
+    rst   : IN STD_LOGIC;
+    clk   : IN STD_LOGIC;
+    i_in  : IN STD_LOGIC; -- l'impultion d'etecter
+    S_in  : IN STD_LOGIC; -- stop -- en prevenance de la machine d'etat (partie_CT)
+    v     : OUT STD_LOGIC_VECTOR(20 DOWNTO 0);
+        -- affichage 7 segment 
+    seg_1 : OUT STD_LOGIC_VECTOR(1 TO 7);
+    seg_2 : OUT STD_LOGIC_VECTOR(1 TO 7);
+    seg_3 : OUT STD_LOGIC_VECTOR(1 TO 7);
+    seg_4 : OUT STD_LOGIC_VECTOR(1 TO 7);
+    seg_5 : OUT STD_LOGIC_VECTOR(1 TO 7);
+    seg_6 : OUT STD_LOGIC_VECTOR(1 TO 7)
+);
+END COMPONENT;
+
+    -- les signaux interne
+SIGNAL S_s : STD_LOGIC; -- stop
+
+BEGIN
+
+    -- mapping
+pcr1 : P_CT PORT MAP (
+    clk => clk,
+    rst => rst,
+    rq  => rq,
+    ack => ack,
+    s_out => s_s
+);
+
+po1 : P_O PORT MAP (
+    rst   => rst,
+    clk   => clk,
+    i_in  => i_in,
+    s_in  => s_s,
+    v     => v,
+    seg_1 => seg_1,
+    seg_2 => seg_2,
+    seg_3 => seg_3,
+    seg_4 => seg_4,
+    seg_5 => seg_5,
+    seg_6 => seg_6
+);
+
+END RTL;

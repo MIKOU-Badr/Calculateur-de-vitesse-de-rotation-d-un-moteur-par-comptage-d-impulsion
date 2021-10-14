@@ -1,0 +1,16 @@
+Fitter Status : Successful - Tue Sep 08 23:28:55 2020
+Quartus II Version : 9.0 Build 132 02/25/2009 SJ Full Version
+Revision Name : C_V_R_M
+Top-level Entity Name : C_V_R_M
+Family : Cyclone II
+Device : EP2C70F896C6
+Timing Models : Final
+Total logic elements : 149 / 68,416 ( < 1 % )
+    Total combinational functions : 117 / 68,416 ( < 1 % )
+    Dedicated logic registers : 78 / 68,416 ( < 1 % )
+Total registers : 78
+Total pins : 68 / 622 ( 11 % )
+Total virtual pins : 0
+Total memory bits : 0 / 1,152,000 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 300 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

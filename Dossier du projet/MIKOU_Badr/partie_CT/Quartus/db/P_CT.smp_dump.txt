@@ -1,0 +1,6 @@
+
+State Machine - |P_CT|present
+Name present.Acknowledge present.Request present.Attente 
+present.Attente 0 0 0 
+present.Request 0 1 1 
+present.Acknowledge 1 0 1 

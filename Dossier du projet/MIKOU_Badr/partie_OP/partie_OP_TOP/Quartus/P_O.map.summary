@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Sep 08 23:13:30 2020
+Quartus II Version : 9.0 Build 132 02/25/2009 SJ Full Version
+Revision Name : P_O
+Top-level Entity Name : P_O
+Family : Cyclone II
+Total logic elements : 158
+    Total combinational functions : 114
+    Dedicated logic registers : 75
+Total registers : 75
+Total pins : 67
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

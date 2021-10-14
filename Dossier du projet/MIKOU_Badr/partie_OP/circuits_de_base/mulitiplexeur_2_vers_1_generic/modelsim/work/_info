@@ -1,0 +1,100 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/MIKOU_Badr/partie_OP/circuits_de_base/mulitiplexeur_2_vers_1_generic/modelsim
+Emux_2_1_gen
+Z1 w1599330045
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z4 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z7 8D:/MIKOU_Badr/partie_OP/circuits_de_base/mulitiplexeur_2_vers_1_generic/SRC/MUX_2_1_GEN.VHD
+Z8 FD:/MIKOU_Badr/partie_OP/circuits_de_base/mulitiplexeur_2_vers_1_generic/SRC/MUX_2_1_GEN.VHD
+l0
+L31
+V?2V=jaIhA=m5B71]TRmbH2
+!s100 YD2G@V;gebS;ck6A6NgF;3
+Z9 OP;C;10.4a;61
+32
+Z10 !s110 1599330402
+!i10b 1
+Z11 !s108 1599330402.000000
+Z12 !s90 -reportprogress|300|-work|work|D:/MIKOU_Badr/partie_OP/circuits_de_base/mulitiplexeur_2_vers_1_generic/SRC/MUX_2_1_GEN.VHD|
+Z13 !s107 D:/MIKOU_Badr/partie_OP/circuits_de_base/mulitiplexeur_2_vers_1_generic/SRC/MUX_2_1_GEN.VHD|
+!i113 1
+Z14 o-work work -O0
+Z15 tExplicit 1
+Artl
+R2
+R3
+R4
+R5
+R6
+DEx4 work 11 mux_2_1_gen 0 22 ?2V=jaIhA=m5B71]TRmbH2
+l46
+L45
+VhNZT9VkQMVV;MgLA@jhLN2
+!s100 iGnfFObg2HM6a]FP1HjYW0
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 1
+R14
+R15
+Emux_2_1_gen_tb
+Z16 w1599330316
+R2
+R3
+R4
+R5
+R6
+R0
+Z17 8D:/MIKOU_Badr/partie_OP/circuits_de_base/mulitiplexeur_2_vers_1_generic/test_bench/MUX_2_1_tb_GEN.VHD
+Z18 FD:/MIKOU_Badr/partie_OP/circuits_de_base/mulitiplexeur_2_vers_1_generic/test_bench/MUX_2_1_tb_GEN.VHD
+l0
+L30
+Vi<jcH?>FPkdT;hXCd^G9U3
+!s100 @1dl9zl=fA1[>T2jNNn5f1
+R9
+32
+R10
+!i10b 1
+R11
+Z19 !s90 -reportprogress|300|-work|work|D:/MIKOU_Badr/partie_OP/circuits_de_base/mulitiplexeur_2_vers_1_generic/test_bench/MUX_2_1_tb_GEN.VHD|
+Z20 !s107 D:/MIKOU_Badr/partie_OP/circuits_de_base/mulitiplexeur_2_vers_1_generic/test_bench/MUX_2_1_tb_GEN.VHD|
+!i113 1
+R14
+R15
+Artl
+R2
+R3
+R4
+R5
+R6
+Z21 DEx4 work 14 mux_2_1_gen_tb 0 22 i<jcH?>FPkdT;hXCd^G9U3
+l59
+L37
+Z22 VJG:3J5:1XWz924gWNJ29G1
+Z23 !s100 b^kPFEhzm;eQdAQ85E1Cg2
+R9
+32
+R10
+!i10b 1
+R11
+R19
+R20
+!i113 1
+R14
+R15

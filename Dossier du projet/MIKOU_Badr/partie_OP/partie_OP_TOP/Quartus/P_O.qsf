@@ -1,0 +1,67 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2009 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II
+# Version 9.0 Build 132 02/25/2009 SJ Full Version
+# Date created = 23:13:18  September 08, 2020
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		P_O_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name DEVICE EP2C70F896C6
+set_global_assignment -name TOP_LEVEL_ENTITY P_O
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 9.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "23:13:18  SEPTEMBER 08, 2020"
+set_global_assignment -name LAST_QUARTUS_VERSION 9.0
+set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
+set_global_assignment -name VHDL_FILE ../SRC/P_O.VHD
+set_global_assignment -name VHDL_FILE ../../multiplexeur_temporel/SRC/M_T.VHD
+set_global_assignment -name VHDL_FILE ../../diviseur_de_frequence/SRC/DIV_FRE.VHD
+set_global_assignment -name VHDL_FILE ../../detecteur_de_front/SRC/FRONT_DCT.VHD
+set_global_assignment -name VHDL_FILE ../../Decodeur_7_segments/SRC/SEVEN_SEG.VHD
+set_global_assignment -name VHDL_FILE ../../compteur_modulo_30/SRC/COMP_30.VHD
+set_global_assignment -name VHDL_FILE ../../compteur_de_vitesse_sauvgarde_et_fixation/SRC/COMP_V_S_F.VHD
+set_global_assignment -name VHDL_FILE ../../Afficheur_7_segment/SRC/A_7_S.VHD
+set_global_assignment -name VHDL_FILE ../../circuits_de_base/registre_flip_flop_generic/SRC/REG_FLIP_FLOP_GEN.VHD
+set_global_assignment -name VHDL_FILE ../../circuits_de_base/multiplexeur_6_vers_1/SRC/MUX_6_1.VHD
+set_global_assignment -name VHDL_FILE ../../circuits_de_base/mulitiplexeur_2_vers_1_generic/SRC/MUX_2_1_GEN.VHD
+set_global_assignment -name VHDL_FILE ../../circuits_de_base/comparateur/SRC/CMP.VHD
+set_global_assignment -name VHDL_FILE ../../circuits_de_base/bascule_d/SRC/D_BAS.VHD
+set_global_assignment -name VHDL_FILE ../../circuits_de_base/additionneur_1_generic/SRC/ADD_1_GEN.VHD
+set_global_assignment -name VHDL_FILE ../../circuits_de_base/a_andNot_b/SRC/AND_NOT.VHD
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"

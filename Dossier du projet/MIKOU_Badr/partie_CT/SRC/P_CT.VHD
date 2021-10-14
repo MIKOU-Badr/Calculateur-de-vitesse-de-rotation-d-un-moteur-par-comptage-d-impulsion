@@ -1,0 +1,96 @@
+--**************************************************************************************--
+--					ENSA FES					--
+--		             	     Filiere :GSEII					--
+--**************************************************************************************--
+	-- Title	: partie controle
+	-- Project    	: "calculateur de vitesse de rotation d'un moteur"
+    	-- Block 	: partie controle
+--**************************************************************************************--
+	-- File  	: P_CT.VHD
+	-- Authors 	: MIKOU Badr
+	-- Created 	: 06/09/2020
+--**************************************************************************************--
+	-- Description	:
+       -- la paortie controle de notre circuit elle controle la partie operative
+       -- c'est une machine o etat
+	 
+--**************************************************************************************--
+
+
+--**************************************************************************************--
+--*				     Used Libraries				       *--
+--**************************************************************************************--
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL; 
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
+--**************************************************************************************--
+--*				   ENTITY Declaration				       *--
+--**************************************************************************************--
+
+ENTITY P_CT IS PORT(
+    clk   : in std_logic;
+    rst   : in std_logic;
+    rq    : in std_logic;
+    ack   : out std_logic; -- acknoledge
+    s_out : out std_logic -- bloquer la sortie
+);
+END P_CT;
+
+--**************************************************************************************--
+--*				    RTL Description				       *--
+--**************************************************************************************--
+
+ARCHITECTURE RTL OF P_CT IS
+
+    -- le type des etat de notre machine a etat
+TYPE state is (Attente, Request, Acknowledge);
+
+    -- creation de deux signaux interne
+SIGNAL present : state;
+SIGNAL futur   : state;
+
+BEGIN 
+
+    -- synchronisation
+PROCESS (rst, clk)
+BEGIN
+    IF (rst = '0') THEN
+        present <= Attente;
+    ELSIF (clk'EVENT AND clk = '1') THEN
+        present <= futur;
+    END IF;
+END PROCESS;
+
+    -- evolution
+PROCESS (present , rq)
+BEGIN
+    CASE present IS
+        when Attente     => futur <= Attente;
+                            IF (rq = '1') THEN
+                                futur <= Request;
+                            END IF;
+        WHEN Request     => futur <= Acknowledge;
+        when Acknowledge => futur <= Acknowledge;
+                            IF (rq = '0') THEN
+                            futur <= Attente;
+                            END IF;
+    END CASE;
+END PROCESS;
+
+    -- action
+PROCESS (present , rq)
+BEGIN
+
+    s_out <= '0';
+    ack   <= '0';
+
+    CASE present IS
+        when Attente     => s_out <= '0';
+                            ack   <= '0';
+        WHEN Request     => s_out <= '1'; -- fixer la sortie   
+        when Acknowledge => s_out <= '1';
+                            ack   <= '1';
+    END CASE;
+END PROCESS;
+END RTL;

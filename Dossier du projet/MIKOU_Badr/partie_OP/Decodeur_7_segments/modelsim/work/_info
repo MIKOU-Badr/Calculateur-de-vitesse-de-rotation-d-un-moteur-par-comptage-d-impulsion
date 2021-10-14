@@ -1,0 +1,96 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/MIKOU_Badr/partie_OP/Decodeur_7_segments/modelsim
+Eseven_seg
+Z1 w1599415707
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z6 8D:/MIKOU_Badr/partie_OP/Decodeur_7_segments/SRC/SEVEN_SEG.VHD
+Z7 FD:/MIKOU_Badr/partie_OP/Decodeur_7_segments/SRC/SEVEN_SEG.VHD
+l0
+L31
+VKZzXzoNXP6YPS@FnDzPW]1
+!s100 Ya[]H]FgPe9GkdJ=P579A0
+Z8 OP;C;10.4a;61
+32
+Z9 !s110 1599421632
+!i10b 1
+Z10 !s108 1599421632.000000
+Z11 !s90 -reportprogress|300|-work|work|D:/MIKOU_Badr/partie_OP/Decodeur_7_segments/SRC/SEVEN_SEG.VHD|
+Z12 !s107 D:/MIKOU_Badr/partie_OP/Decodeur_7_segments/SRC/SEVEN_SEG.VHD|
+!i113 1
+Z13 o-work work -O0
+Z14 tExplicit 1
+Artl
+R2
+R3
+R4
+R5
+DEx4 work 9 seven_seg 0 22 KZzXzoNXP6YPS@FnDzPW]1
+l41
+L40
+VE7L82efDEFEfIBbPa23X12
+!s100 I=7^]86gY2K47DBX8^LV_1
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Eseven_seg_tb
+Z15 w1599415395
+R2
+R3
+R4
+R5
+R0
+Z16 8D:/MIKOU_Badr/partie_OP/Decodeur_7_segments/test_bunsh/SEVEN_SEG_tb.VHD
+Z17 FD:/MIKOU_Badr/partie_OP/Decodeur_7_segments/test_bunsh/SEVEN_SEG_tb.VHD
+l0
+L30
+VbnSP>LPkm]IgmMe=YD0Rm3
+!s100 Ol>ZI>>`?da50KU0l6aeA2
+R8
+32
+Z18 !s110 1599421633
+!i10b 1
+R10
+Z19 !s90 -reportprogress|300|-work|work|D:/MIKOU_Badr/partie_OP/Decodeur_7_segments/test_bunsh/SEVEN_SEG_tb.VHD|
+Z20 !s107 D:/MIKOU_Badr/partie_OP/Decodeur_7_segments/test_bunsh/SEVEN_SEG_tb.VHD|
+!i113 1
+R13
+R14
+Artl
+R2
+R3
+R4
+R5
+DEx4 work 12 seven_seg_tb 0 22 bnSP>LPkm]IgmMe=YD0Rm3
+l46
+L35
+Vo2HdRD8`M6U52WFb?H@>32
+!s100 0Vff0akGY?8OX4EAB1?]S3
+R8
+32
+R18
+!i10b 1
+R10
+R19
+R20
+!i113 1
+R13
+R14

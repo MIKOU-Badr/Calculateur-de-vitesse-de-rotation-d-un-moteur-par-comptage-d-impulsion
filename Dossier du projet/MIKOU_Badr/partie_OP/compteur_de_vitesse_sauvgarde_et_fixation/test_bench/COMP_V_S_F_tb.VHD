@@ -1,0 +1,105 @@
+--**************************************************************************************--
+--					ENSA FES					--
+--		             	     Filiere :GSEII					--
+--**************************************************************************************--
+	-- Title	: compteur de vitesse de rotation : sauvgarde et fixation
+	-- Project    	: "calculateur de vitesse de rotation d'un moteur"
+    	-- Block 	: partie operative
+--**************************************************************************************--
+	-- File  	: COMP_V_S_F_tb.VHD
+	-- Authors 	: MIKOU Badr
+	-- Created 	: 06/09/2020
+--**************************************************************************************--
+	-- Description	:
+    	-- il compte combien de cycle d'horloge le moteur a besoin pour faire 1 tour
+    	-- de la sauvgarder puit de la fixer a fin de pouvoir la lire
+	 
+--**************************************************************************************--
+
+
+--**************************************************************************************--
+--*				     Used Libraries				       *--
+--**************************************************************************************--
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL; 
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
+--**************************************************************************************--
+--*				   ENTITY Declaration				       *--
+--**************************************************************************************--
+
+ENTITY COMP_V_S_F_tb IS
+END COMP_V_S_F_tb;
+
+--**************************************************************************************--
+--*				    RTL Description				       *--
+--**************************************************************************************--
+
+ARCHITECTURE RTL OF COMP_V_S_F_tb IS
+
+    -- implementation des composantes.
+COMPONENT COMP_V_S_F IS PORT(
+    rst   : IN STD_LOGIC;
+    clk   : IN STD_LOGIC;
+    S_in  : IN STD_LOGIC; -- stop -- en prevenance de la machine d'etat (partie_CT)
+    cmp30 : IN STD_LOGIC;
+    v     : OUT STD_LOGIC_VECTOR(20 DOWNTO 0)
+);
+END COMPONENT;
+
+    -- les signaux d'entre et de sortie 
+SIGNAL r_s   : STD_LOGIC;
+SIGNAL c_s   : STD_LOGIC;
+SIGNAL s_s   : STD_LOGIC;
+SIGNAL c30_s : STD_LOGIC;
+SIGNAL v_s   : STD_LOGIC_VECTOR(20 DOWNTO 0);
+
+BEGIN
+
+    -- mapping
+CVSF1 : COMP_V_S_F PORT MAP (
+    rst   => r_s,
+    clk   => c_s,
+    s_in  => s_s,
+    cmp30 => c30_s,
+    v     => v_s
+);
+
+    -- les donnée d'entrées
+    -- le process de simulation
+
+r1 : PROCESS 
+BEGIN
+    r_s <= '0';
+    WAIT FOR 50 NS;
+    r_s <= '1';
+    WAIT FOR 2000 NS;
+END PROCESS;
+
+c1 : PROCESS 
+BEGIN
+    c_s <= '0';
+    WAIT FOR 20 NS;
+    c_s <= '1';
+    WAIT FOR 20 NS;
+END PROCESS;
+
+s1 : PROCESS 
+BEGIN
+    s_s <= '0';
+    WAIT FOR 700 NS;
+    s_s <= '1';
+    WAIT FOR 200 NS;
+END PROCESS;
+
+c30_1 : PROCESS 
+BEGIN
+    c30_s <= '0';
+    WAIT FOR 490 NS;
+    c30_s <= '1';
+    WAIT FOR 40 NS;
+END PROCESS;
+
+
+
+ END RTL;

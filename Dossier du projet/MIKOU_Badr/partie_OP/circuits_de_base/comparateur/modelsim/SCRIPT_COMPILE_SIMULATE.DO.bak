@@ -1,0 +1,5 @@
+vcom -reportprogress 300 -work work D:/MIKOU_Badr/partie_OP/compteur_modulo_30/comparateur/SRC/CMP.VHD
+vcom -reportprogress 300 -work work D:/MIKOU_Badr/partie_OP/compteur_modulo_30/comparateur/test_bench/CMP_tb.VHD
+vsim work.cmp_tb
+add wave sim:/cmp_tb/*
+run

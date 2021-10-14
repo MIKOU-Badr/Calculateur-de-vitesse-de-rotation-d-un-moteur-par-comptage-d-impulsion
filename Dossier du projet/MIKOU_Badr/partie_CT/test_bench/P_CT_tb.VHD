@@ -1,0 +1,93 @@
+--**************************************************************************************--
+--					ENSA FES					--
+--		             	     Filiere :GSEII					--
+--**************************************************************************************--
+	-- Title	: partie controle
+	-- Project    	: "calculateur de vitesse de rotation d'un moteur"
+    	-- Block 	: partie controle
+--**************************************************************************************--
+	-- File  	: P_CT_tb.VHD
+	-- Authors 	: MIKOU Badr
+	-- Created 	: 06/09/2020
+--**************************************************************************************--
+	-- Description	:
+       -- la paortie controle de notre circuit elle controle la partie operative
+       -- c'est une machine o etat
+	 
+--**************************************************************************************--
+
+
+--**************************************************************************************--
+--*				     Used Libraries				       *--
+--**************************************************************************************--
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL; 
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
+--**************************************************************************************--
+--*				   ENTITY Declaration				       *--
+--**************************************************************************************--
+
+ENTITY P_CT_tb IS 
+END P_CT_tb;
+
+--**************************************************************************************--
+--*				    RTL Description				       *--
+--**************************************************************************************--
+
+ARCHITECTURE RTL OF P_CT_tb IS
+
+    -- implentation de la composante a tester 
+COMPONENT P_CT IS PORT(
+    clk  : in std_logic;
+    rst  : in std_logic;
+    rq   : in std_logic;
+    ack  : out std_logic; -- acknoledge
+    s_out : out std_logic -- bloquer la sortie
+);
+END COMPONENT;
+
+    -- les signaux d'entée et de sortie
+SIGNAL r_s  : STD_LOGIC;
+SIGNAL c_s  : STD_LOGIC;
+SIGNAL r_qs : STD_LOGIC;
+SIGNAL a_s  : STD_LOGIC;
+SIGNAL s_s  : STD_LOGIC;
+
+BEGIN
+
+    -- mapping
+pct1 : P_CT PORT MAP (
+    clk   => c_s,
+    rst   => r_s,
+    rq    => r_qs,
+    ack   => a_s,
+    s_out => s_s
+);
+
+    -- les valeur d'entré et de sortie 
+r1 : PROCESS 
+BEGIN
+    r_s <= '0';
+    WAIT FOR 50 NS;
+    r_s <= '1';
+    WAIT FOR 1000 NS;
+END PROCESS;
+
+c1 : PROCESS 
+BEGIN
+    c_s <= '0';
+    WAIT FOR 20 NS;
+    c_s <= '1';
+    WAIT FOR 20 NS;
+END PROCESS;
+
+rq1 : PROCESS 
+BEGIN
+    r_qs <= '0';
+    WAIT FOR 300 NS;
+    r_qs <= '1';
+    WAIT FOR 200 NS;
+END PROCESS;
+
+END RTL;

@@ -1,0 +1,140 @@
+--**************************************************************************************--
+--					ENSA FES					--
+--		             	     Filiere :GSEII					--
+--**************************************************************************************--
+	-- Title	: compteur modulo 30 (architecture top)
+	-- Project    	: "calculateur de vitesse de rotation d'un moteur"
+    -- Block 	: partie operative
+--**************************************************************************************--
+	-- File  	: COMP_30.VHD
+	-- Authors 	: MIKOU Badr
+	-- Created 	: 04/09/2020
+--**************************************************************************************--
+	-- Description	:
+	--  il genere une impulsion apres qu'il calcule de 0 jusqu'à 29
+	 
+--**************************************************************************************--
+
+
+--**************************************************************************************--
+--*				     Used Libraries				       *--
+--**************************************************************************************--
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL; 
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
+--**************************************************************************************--
+--*				   ENTITY Declaration				       *--
+--**************************************************************************************--
+
+ENTITY COMP_30 IS PORT(
+    rst   : IN STD_LOGIC;
+    clk   : IN STD_LOGIC;
+    i_f   : IN STD_LOGIC;
+    cmp30 : OUT STD_LOGIC
+);
+END COMP_30;
+
+--**************************************************************************************--
+--*				    RTL Description				       *--
+--**************************************************************************************--
+
+ARCHITECTURE RTL OF COMP_30 IS
+
+    -- le nombre de bite d"entree et de sortie
+CONSTANT   n  : INTEGER := 5;
+    -- implementation des composantes.
+COMPONENT MUX_2_1_GEN IS GENERIC (
+	n : INTEGER 
+);
+PORT (
+	in0 : IN STD_LOGIC_VECTOR(n-1 DOWNTO 0);
+	in1 : IN STD_LOGIC_VECTOR(n-1 DOWNTO 0);
+	sel : IN STD_LOGIC;
+	y   : OUT STD_LOGIC_VECTOR(n-1 DOWNTO 0));
+END COMPONENT;
+
+COMPONENT REG_FLIP_FLOP_GEN IS GENERIC (
+	n : INTEGER
+);
+PORT (
+	rst : IN STD_LOGIC;
+	clk : IN STD_LOGIC;
+	d   : IN STD_LOGIC_VECTOR(n-1 DOWNTO 0);
+    s   : OUT STD_LOGIC_VECTOR(n-1 DOWNTO 0)
+);
+END COMPONENT;
+
+COMPONENT CMP IS PORT (
+	in0 : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+	in1 : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+    y   : OUT STD_LOGIC);
+END COMPONENT;
+
+COMPONENt ADD_1_GEN IS GENERIC ( 
+	n : INTEGER
+);
+PORT (
+    a : IN STD_LOGIC_VECTOR(n-1 DOWNTO 0);
+	s : OUT STD_LOGIC_VECTOR(n-1 DOWNTO 0)
+);
+END COMPONENT;
+
+    -- les signaux d'entre et de sortie 
+SIGNAL CMPT : STD_LOGIC_VECTOR(n-1 DOWNTO 0); -- la sortie de registre flip flop -- le nombre d'impultion
+SIGNAL sig2 : STD_LOGIC_VECTOR(n-1 DOWNTO 0); -- la sortie du premier multiplexeur (mux1)
+SIGNAL sig3 : STD_LOGIC_VECTOR(n-1 DOWNTO 0); -- la sortie de add_1
+SIGNAL sig4 : STD_LOGIC_VECTOR(n-1 DOWNTO 0); -- la sortie du  multiplexeur (mux2)
+SIGNAL sig5 : STD_LOGIC; 		    -- cmp30
+
+BEGIN
+
+    -- mapping
+mux1 : MUX_2_1_GEN GENERIC MAP (
+    n => n
+)
+PORT MAP (
+    in0 => CMPT,
+    in1 => (OTHERS => '0'),
+    sel => sig5,
+    y   => sig2
+);
+
+add1 : ADD_1_GEN GENERIC MAP (
+    n => n
+)
+PORT MAP (
+    a => sig2,
+    s => sig3
+);
+
+mux2 : MUX_2_1_GEN GENERIC MAP (
+    n => n
+)
+PORT MAP (
+    in0 => sig2,
+    in1 => sig3,
+    sel => i_f,
+    y   => sig4
+);
+
+rff1 : REG_FLIP_FLOP_GEN GENERIC MAP (
+    n => n
+)
+PORT MAP (
+    rst => rst,
+    clk => clk,
+    d   => sig4,
+    s   => CMPT 
+);
+
+cmp1 : CMP PORT MAP (
+    in0 => CMPT, -- apres cmpt sera remis a zero
+    in1 => "11101", -- equivalent a 29
+    y => sig5
+);
+
+    -- la valeur de sortie     
+cmp30 <= sig5;
+
+ END RTL;

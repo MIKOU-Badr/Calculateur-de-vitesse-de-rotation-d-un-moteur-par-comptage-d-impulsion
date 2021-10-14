@@ -1,0 +1,75 @@
+--**************************************************************************************--
+--					ENSA FES					--
+--		             	     Filiere :GSEII					--
+--**************************************************************************************--
+	-- Title	: comparateur
+	-- Project    	: "calculateur de vitesse de rotation d'un moteur"
+    	-- Block 	: circuit de base
+--**************************************************************************************--
+	-- File  	: SEVEN_SEG.VHD
+	-- Authors 	: MIKOU Badr
+	-- Created 	: 06/09/2020
+--**************************************************************************************--
+	-- Description	:
+	-- Les segments sont traditionnellement identifies par les valeurs de 0 -> 6. 
+	--Dans notre module, la sortie est un vecteur croissant de 1 -> 7 
+	--correspondant aux segments 0 -> 6 
+
+--**************************************************************************************--
+
+
+--**************************************************************************************--
+--*				     Used Libraries				       *--
+--**************************************************************************************--
+
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+--**************************************************************************************--
+--*				   ENTITY Declaration				       *--
+--**************************************************************************************--
+ENTITY SEVEN_SEG IS PORT (
+	  pol  : IN STD_LOGIC;
+	  data : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    	  seg_out : OUT STD_LOGIC_VECTOR(1 TO 7)
+);
+END SEVEN_SEG;
+--**************************************************************************************--
+--*				    RTL Description				       *--
+--**************************************************************************************--
+ARCHITECTURE RTL OF SEVEN_SEG IS
+BEGIN
+    seg_out <= "1111110" WHEN pol = '1' AND data = "0000" ELSE
+               "0000001" WHEN pol = '0' AND data = "0000" ELSE
+               "0110000" WHEN pol = '1' AND data = "0001" ELSE
+               "1001111" WHEN pol = '0' AND data = "0001" ELSE
+               "1101101" WHEN pol = '1' AND data = "0010" ELSE
+               "0010010" WHEN pol = '0' AND data = "0010" ELSE
+               "1111001" WHEN pol = '1' AND data = "0011" ELSE
+               "0000110" WHEN pol = '0' AND data = "0011" ELSE
+               "0110011" WHEN pol = '1' AND data = "0100" ELSE
+               "1001100" WHEN pol = '0' AND data = "0100" ELSE
+               "1011011" WHEN pol = '1' AND data = "0101" ELSE
+               "0100100" WHEN pol = '0' AND data = "0101" ELSE
+               "1011111" WHEN pol = '1' AND data = "0110" ELSE
+               "0100000" WHEN pol = '0' AND data = "0110" ELSE
+               "1110000" WHEN pol = '1' AND data = "0111" ELSE
+               "0001111" WHEN pol = '0' AND data = "0111" ELSE
+               "1111111" WHEN pol = '1' AND data = "1000" ELSE
+               "0000000" WHEN pol = '0' AND data = "1000" ELSE
+               "1111011" WHEN pol = '1' AND data = "1001" ELSE
+               "0000100" WHEN pol = '0' AND data = "1001" ELSE
+               "1110111" WHEN pol = '1' AND data = "1010" ELSE
+               "0001000" WHEN pol = '0' AND data = "1010" ELSE
+               "0011111" WHEN pol = '1' AND data = "1011" ELSE
+               "1100000" WHEN pol = '0' AND data = "1011" ELSE
+               "1101110" WHEN pol = '1' AND data = "1100" ELSE
+               "0010001" WHEN pol = '0' AND data = "1100" ELSE
+               "0111101" WHEN pol = '1' AND data = "1101" ELSE
+               "1000010" WHEN pol = '0' AND data = "1101" ELSE
+               "1001111" WHEN pol = '1' AND data = "1110" ELSE
+               "0011000" WHEN pol = '0' AND data = "1110" ELSE
+               "1000111" WHEN pol = '1' AND data = "1111" ELSE
+               "0111000" WHEN pol = '0' AND data = "1111" ELSE
+               "ZZZZZZZ";
+ END RTL;

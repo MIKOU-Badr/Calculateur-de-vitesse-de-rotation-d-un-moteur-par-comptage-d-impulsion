@@ -1,0 +1,145 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/MIKOU_Badr/partie_OP/diviseur_de_frequence/modelsim
+Ed_bas
+Z1 w1599336177
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z4 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z7 8D:/MIKOU_Badr/partie_OP/circuits_de_base/bascule_d/SRC/D_BAS.VHD
+Z8 FD:/MIKOU_Badr/partie_OP/circuits_de_base/bascule_d/SRC/D_BAS.VHD
+l0
+L29
+V@S0[gYIdj3fIbkKfG9dnZ2
+!s100 0L8jOl=T`SBIiTalS2JlU2
+Z9 OP;C;10.4a;61
+32
+Z10 !s110 1599337047
+!i10b 1
+Z11 !s108 1599337047.000000
+Z12 !s90 -reportprogress|300|-work|work|D:/MIKOU_Badr/partie_OP/circuits_de_base/bascule_d/SRC/D_BAS.VHD|
+Z13 !s107 D:/MIKOU_Badr/partie_OP/circuits_de_base/bascule_d/SRC/D_BAS.VHD|
+!i113 1
+Z14 o-work work -O0
+Z15 tExplicit 1
+Artl
+R2
+R3
+R4
+R5
+R6
+DEx4 work 5 d_bas 0 22 @S0[gYIdj3fIbkKfG9dnZ2
+l41
+L40
+V39D:ML2OW;kfjb15XT6[P2
+!s100 ]>b34G:C7lLjKjS^4lmXI1
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 1
+R14
+R15
+Ediv_fre
+Z16 w1599336230
+R2
+R3
+R4
+R5
+R6
+R0
+Z17 8D:/MIKOU_Badr/partie_OP/diviseur_de_frequence/SRC/DIV_FRE.VHD
+Z18 FD:/MIKOU_Badr/partie_OP/diviseur_de_frequence/SRC/DIV_FRE.VHD
+l0
+L29
+V:m54<6_ChRSEV764^@cV51
+!s100 Pl>JgW1iK6F3Z^S=YW?ez0
+R9
+32
+R10
+!i10b 1
+R11
+Z19 !s90 -reportprogress|300|-work|work|D:/MIKOU_Badr/partie_OP/diviseur_de_frequence/SRC/DIV_FRE.VHD|
+Z20 !s107 D:/MIKOU_Badr/partie_OP/diviseur_de_frequence/SRC/DIV_FRE.VHD|
+!i113 1
+R14
+R15
+Artl
+R2
+R3
+R4
+R5
+R6
+DEx4 work 7 div_fre 0 22 :m54<6_ChRSEV764^@cV51
+l53
+L38
+VYI<kQ:l7E<2SNiNY[fScB1
+!s100 If`fkzEVb^Nc84O1HA`5>3
+R9
+32
+R10
+!i10b 1
+R11
+R19
+R20
+!i113 1
+R14
+R15
+Ediv_fre_tb
+Z21 w1599336376
+R2
+R3
+R4
+R5
+R6
+R0
+Z22 8D:/MIKOU_Badr/partie_OP/diviseur_de_frequence/test_bench/DIV_FRE_tb.VHD
+Z23 FD:/MIKOU_Badr/partie_OP/diviseur_de_frequence/test_bench/DIV_FRE_tb.VHD
+l0
+L29
+VD5_UoCZ36>@HW<RHT1d[l0
+!s100 BHcJ;@Fdd6loF:U9jZaV61
+R9
+32
+R10
+!i10b 1
+R11
+Z24 !s90 -reportprogress|300|-work|work|D:/MIKOU_Badr/partie_OP/diviseur_de_frequence/test_bench/DIV_FRE_tb.VHD|
+Z25 !s107 D:/MIKOU_Badr/partie_OP/diviseur_de_frequence/test_bench/DIV_FRE_tb.VHD|
+!i113 1
+R14
+R15
+Artl
+R2
+R3
+R4
+R5
+R6
+Z26 DEx4 work 10 div_fre_tb 0 22 D5_UoCZ36>@HW<RHT1d[l0
+l49
+L34
+Z27 VDfP`1`m=6ga:G6iQ^R7om0
+Z28 !s100 T5FTL2kz>Ql[Xfoa^Tg@n0
+R9
+32
+R10
+!i10b 1
+R11
+R24
+R25
+!i113 1
+R14
+R15

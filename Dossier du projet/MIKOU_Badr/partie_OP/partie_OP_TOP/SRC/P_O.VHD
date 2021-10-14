@@ -1,0 +1,200 @@
+--**************************************************************************************--
+--					ENSA FES					--
+--		             	     Filiere :GSEII					--
+--**************************************************************************************--
+	-- Title	: partie operative (l'architecture top)
+	-- Project    	: "calculateur de vitesse de rotation d'un moteur"
+    	-- Block 	: partie operative
+--**************************************************************************************--
+	-- File  	: P_O.VHD
+	-- Authors 	: MIKOU Badr
+	-- Created 	: 06/09/2020
+--**************************************************************************************--
+	-- Description	:
+   	-- la paortie operative de notre circuit
+	 
+--**************************************************************************************--
+
+
+--**************************************************************************************--
+--*				     Used Libraries				       *--
+--**************************************************************************************--
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL; 
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
+--**************************************************************************************--
+--*				   ENTITY Declaration				       *--
+--**************************************************************************************--
+
+ENTITY P_O IS PORT(
+    rst   : IN STD_LOGIC;
+    clk   : IN STD_LOGIC;
+    i_in  : IN STD_LOGIC; -- l'impultion d'etecter
+    S_in  : IN STD_LOGIC; -- stop -- en prevenance de la machine d'etat (partie_CT)
+    
+    v     : OUT STD_LOGIC_VECTOR(20 DOWNTO 0);
+        -- affichage 7 segment 
+    seg_1 : OUT STD_LOGIC_VECTOR(1 TO 7);
+    seg_2 : OUT STD_LOGIC_VECTOR(1 TO 7);
+    seg_3 : OUT STD_LOGIC_VECTOR(1 TO 7);
+    seg_4 : OUT STD_LOGIC_VECTOR(1 TO 7);
+    seg_5 : OUT STD_LOGIC_VECTOR(1 TO 7);
+    seg_6 : OUT STD_LOGIC_VECTOR(1 TO 7)
+);
+END P_O;
+
+--**************************************************************************************--
+--*				    RTL Description				       *--
+--**************************************************************************************--
+
+ARCHITECTURE RTL OF P_O IS
+
+    -- implementation des composantes.
+COMPONENT  DIV_FRE IS PORT (
+    rst  : IN STD_LOGIC;
+    clk  : IN STD_LOGIC;
+    cout : OUT STD_LOGIC 
+);
+END COMPONENT;
+
+COMPONENT  FRONT_DCT IS PORT (
+    rst : IN STD_LOGIC;
+    clk : IN STD_LOGIC;
+    i   : IN STD_LOGIC;
+    i_f   : OUT STD_LOGIC
+);
+END COMPONENT;
+
+COMPONENT COMP_30 IS PORT(
+    rst   : IN STD_LOGIC;
+    clk   : IN STD_LOGIC;
+    i_f   : IN STD_LOGIC;
+    cmp30 : OUT STD_LOGIC
+);
+END COMPONENT;
+
+COMPONENT COMP_V_S_F IS PORT(
+    rst   : IN STD_LOGIC;
+    clk   : IN STD_LOGIC;
+    S_in  : IN STD_LOGIC; -- stop -- en prevenance de la machine d'etat (partie_CT)
+    cmp30 : IN STD_LOGIC;
+    v     : OUT STD_LOGIC_VECTOR(20 DOWNTO 0)
+);
+END COMPONENT;
+
+COMPONENT  SEVEN_SEG IS PORT (
+    pol  : IN STD_LOGIC;
+    data : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    seg_out : OUT STD_LOGIC_VECTOR(1 TO 7)
+);
+END COMPONENT;
+
+COMPONENT M_T IS PORT (
+    rst : IN STD_LOGIC;
+    clk : IN STD_LOGIC;
+        -- les donnees d'entree        
+    in0 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+	in1 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+	in2 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+	in3 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+	in4 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    in5 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    
+        -- la sortie
+    af  : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+    s   : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+);
+END COMPONENT;
+
+COMPONENT A_7_S IS PORT (
+	af      : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+	data_in : IN STD_LOGIC_VECTOR(1 TO 7);
+	dout_0  : OUT STD_LOGIC_VECTOR(1 TO 7);
+    dout_1  : OUT STD_LOGIC_VECTOR(1 TO 7);
+    dout_2  : OUT STD_LOGIC_VECTOR(1 TO 7);
+    dout_3  : OUT STD_LOGIC_VECTOR(1 TO 7);
+    dout_4  : OUT STD_LOGIC_VECTOR(1 TO 7);
+    dout_5  : OUT STD_LOGIC_VECTOR(1 TO 7));
+END COMPONENT;
+
+    -- les signaux d'entre et de sortie 
+SIGNAL clk_2 : STD_LOGIC; -- la sortie du diviseur de frequence (df1)
+SIGNAL i_sf  : STD_LOGIC; -- la sortie du detecteur de front (fd1) -- l'impultion detectee
+SIGNAL c_30  : STD_LOGIC; -- la sortie du compteur modulo 30 (c30) -- le moteur a terminer une tour
+SIGNAL V_out : STD_LOGIC_VECTOR (20 DOWNTO 0); -- la sortie du compteur de vitesse : sauvgarde et fixation.
+SIGNAL v_5   : STD_LOGIC_VECTOR (3 DOWNTO 0); -- pour inserer v_out(20) dans un octe
+SIGNAL s_out : STD_LOGIC_VECTOR (3 DOWNTO 0); -- la sortie du multiplexeur temporel
+SIGNAL f_out : STD_LOGIC_VECTOR (2 DOWNTO 0); -- la case de la donné sortie du multiplexeur temporel
+SIGNAL seg_t : STD_LOGIC_VECTOR (6 DOWNTO 0); -- la sortie du codeur 7 segments
+BEGIN
+
+    -- mapping
+df1 : DIV_FRE PORT MAP (
+    rst  => rst,
+    clk  => clk,
+    cout => clk_2
+);
+
+fd1 :  FRONT_DCT PORT MAP (
+    rst => rst,
+    clk => clk_2,
+    i   => i_in,
+    i_f => i_sf
+);
+
+c30 : COMP_30 PORT MAP (
+    rst   => rst,
+    clk   => clk_2,
+    i_f   => i_sf,
+    cmp30 => c_30
+);
+
+CVSF : COMP_V_S_F PORT MAP (
+    rst   => rst,
+    clk   => clk_2,
+    s_in  => s_in,
+    cmp30 => c_30,
+    v     => v_out
+);
+
+v_5 <= "0000" + v_out(20); -- inserer v_out(20) dans un octe
+
+mt1 : M_T PORT MAP (
+    rst => rst,
+    clk => clk_2,
+
+    in0 => v_out(3 DOWNTO 0),
+    in1 => v_out(7 DOWNTO 4),
+    in2 => v_out(11 DOWNTO 8),
+    in3 => v_out(15 DOWNTO 12),
+    in4 => v_out(19 DOWNTO 16),
+    in5 => v_5,
+
+    af => f_out,
+    s => s_out
+);
+
+seg1 : SEVEN_SEG PORT MAP (
+    pol => '1',
+    data => s_out,
+    seg_out => seg_t
+);
+
+	-- pour enleve le retard d'un cycle d'horloge a fin que le premier octe de v soit ascocie a sig_1
+A7S1 : A_7_S PORT MAP(
+    af => f_out,
+	data_in => seg_t,
+	dout_0  => seg_6,
+    dout_1  => seg_1,
+    dout_2  => seg_2,
+    dout_3  => seg_3,
+    dout_4  => seg_4,
+    dout_5  => seg_5
+);
+
+
+    -- la valeur de sortie
+v <= v_out;
+
+ END RTL;

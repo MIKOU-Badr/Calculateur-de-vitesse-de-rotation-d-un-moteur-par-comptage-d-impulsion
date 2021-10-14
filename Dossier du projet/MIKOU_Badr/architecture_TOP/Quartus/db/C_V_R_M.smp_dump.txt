@@ -1,0 +1,6 @@
+
+State Machine - |C_V_R_M|P_CT:pcr1|present
+Name present.Acknowledge present.Request present.Attente 
+present.Attente 0 0 0 
+present.Request 0 1 1 
+present.Acknowledge 1 0 1 

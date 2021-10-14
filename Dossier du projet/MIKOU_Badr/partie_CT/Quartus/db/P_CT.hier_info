@@ -1,0 +1,7 @@
+|P_CT
+rq => Selector1.IN2
+rq => futur.Request.DATAB
+rq => Selector0.IN1
+ack <= process_2~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
